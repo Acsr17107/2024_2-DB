@@ -1,0 +1,108 @@
+USE testdb;
+
+DROP TABLE if exists 제품;
+
+CREATE TABLE 제품 (
+	제품번호    char(3)          NOT NULL, 
+    제품명     varchar(50)    ,
+    재고량     int, 
+    단가       int,
+    제조업체    varchar(20)    ,
+    PRIMARY KEY(제품번호)
+);
+
+-- 제품(제품번호, 제품명, 재고량, 단가, 제조업체)
+INSERT INTO 제품 VALUES('p01','그냥만두', 5000, 4500, '대한식품');
+INSERT INTO 제품 VALUES('p02','매운쫄면', 2500, 5500, '민국푸드');
+INSERT INTO 제품 VALUES('p03','쿵떡파이', 3600, 2600, '한빛제과');
+INSERT INTO 제품 VALUES('p04','맛난초콜렛', 1250, 2500, '한빛제과');
+INSERT INTO 제품 VALUES('p05','얼큰라면', 2200, 1200, '대한식품');
+
+select * from 제품;
+
+
+
+drop TABLE 학과;
+
+-- 2. 테이블 생성
+-- 학과 테이블 생성
+CREATE TABLE 학과 (
+	학과번호  int          NOT NULL, 
+    학과명    varchar(50) , 
+    PRIMARY KEY(학과번호)
+);
+
+-- 3. 데이터 입력
+-- 학과(학과번호, 학과명)
+INSERT INTO 학과 VALUES(1,'컴퓨터소프트웨어공학과');
+INSERT INTO 학과 VALUES(2,'컴퓨터정보공학과');
+INSERT INTO 학과 VALUES(3,'인공지능소프트웨어과');
+
+-- 4. 데이터 조회
+select * from 학과;
+
+
+
+
+
+CREATE TABLE 학생 (
+	번호     int   NOT NULL, 
+    이름     varchar(12),
+    학년     int, 
+    분반     char(2),
+    학과번호  int,
+    PRIMARY KEY(번호), 
+    FOREIGN KEY(학과번호)
+		REFERENCES 학과(학과번호)
+);
+
+-- 학과(학과번호, 학과명)
+INSERT INTO 학과 VALUES(1,'컴퓨터소프트웨어공학과');
+INSERT INTO 학과 VALUES(2,'컴퓨터정보공학과');
+INSERT INTO 학과 VALUES(3,'인공지능소프트웨어과');
+
+-- 학생(번호, 이름, 학년, 분반, 학과번호)
+INSERT INTO 학생 VALUES(1,'한지혜',1,'YB',1);
+INSERT INTO 학생 VALUES(2,'이정우',1,'YA',1);
+INSERT INTO 학생 VALUES(3,'오지영',2,'J1',2);
+INSERT INTO 학생 VALUES(4,'강재미',1,'YB',1);
+INSERT INTO 학생 VALUES(5,'박철호',2,'Y1',2);
+
+select * from 학과;
+select * from 학생;
+
+
+
+
+CREATE TABLE 학원생
+    학원생이름, 
+    폰번호, 
+    나이, 
+    학교이름, 
+    학년, 
+    반, 
+    반번호, 
+    PRIMARY KEY(폰번호)
+    FOREIGN KEY(학교이름)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
